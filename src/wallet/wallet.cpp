@@ -1001,7 +1001,7 @@ bool CWallet::AddToWallet(const CWalletTx& wtxIn, bool fFlushOnClose)
             fUpdated = true;
         }
 
-        // pos when coinstake which is disconnected connected again,spend it's vin
+        //edinarcoin:pos when coinstake which is disconnected connected again,spend it's vin
         if(fUpdated && wtx.IsCoinStake())
         {
             AddToSpends(hash);
@@ -1134,7 +1134,7 @@ bool CWallet::TransactionCanBeAbandoned(const uint256& hashTx) const
     return wtx && !wtx->isAbandoned() && wtx->GetDepthInMainChain() <= 0 && !wtx->InMempool();
 }
 
-//  disable transaction (only for coinstake)
+//edinarcoin: disable transaction (only for coinstake)
 void CWallet::RemoveFromSpends(const COutPoint& outpoint, const uint256& wtxid)
 {
     std::pair<TxSpends::iterator, TxSpends::iterator> range;
@@ -1152,7 +1152,7 @@ void CWallet::RemoveFromSpends(const COutPoint& outpoint, const uint256& wtxid)
     SyncMetaData(range);
 }
 
-//  disable transaction (only for coinstake)
+//edinarcoin: disable transaction (only for coinstake)
 void CWallet::RemoveFromSpends(const uint256& wtxid)
 {
     assert(mapWallet.count(wtxid));
@@ -1165,7 +1165,7 @@ void CWallet::RemoveFromSpends(const uint256& wtxid)
     }
 }
 
-//  disable transaction (only for coinstake)
+//edinarcoin: disable transaction (only for coinstake)
 void CWallet::DisableTransaction(const CTransaction &tx)
 {
     if (!tx.IsCoinStake() || !IsFromMe(tx))
@@ -1338,7 +1338,7 @@ void CWallet::BlockDisconnected(const std::shared_ptr<const CBlock>& pblock) {
     LOCK2(cs_main, cs_wallet);
 
     for (const CTransactionRef& ptx : pblock->vtx) {
-        // pos wallets need to refund inputs when disconnecting coinstake
+        //edinarcoin:pos wallets need to refund inputs when disconnecting coinstake
         const CTransaction& tx = *ptx;
         if (tx.IsCoinStake() && IsFromMe(tx)){
             DisableTransaction(tx);
@@ -1620,7 +1620,7 @@ void CWalletTx::GetAmounts(std::list<COutputEntry>& listReceived,
         const CTxOut& txout = tx->vout[i];
         isminetype fIsMine = pwallet->IsMine(txout);
 
-        // pos,the coinstake vout[0] is null,so can nou calculate ammount
+        //edinarcoin:pos,the coinstake vout[0] is null,so can nou calculate ammount
         if(tx->IsCoinStake() && i == 0){
             continue;
         }
@@ -1776,7 +1776,7 @@ void CWallet::ReacceptWalletTransactions()
 
 bool CWalletTx::RelayWalletTransaction(CConnman* connman)
 {
-    // bug fix
+    //edinarcoin:bug fix
     if(!pwallet){
         LogPrintf("RelayWalletTransaction, pwallet is null\n");
         return false;
@@ -1787,7 +1787,7 @@ bool CWalletTx::RelayWalletTransaction(CConnman* connman)
         return false;
     }
     assert(pwallet->GetBroadcastTransactions());
-    // pos
+    //edinarcoin:pos
     if (!(IsCoinBase() || IsCoinStake()) && !isAbandoned() && GetDepthInMainChain() == 0)
     {
         CValidationState state;
@@ -2642,7 +2642,7 @@ bool CWallet::SignTransaction(CMutableTransaction &tx)
         const CScript& scriptPubKey = mi->second.tx->vout[input.prevout.n].scriptPubKey;
         const CAmount& amount = mi->second.tx->vout[input.prevout.n].nValue;
         SignatureData sigdata;
-        // two way protect
+        //edinarcoin:two way protect
         if (!ProduceSignature(TransactionSignatureCreator(this, &txNewConst, nIn, amount, SIGHASH_ALL | SIGHASH_FORKID), scriptPubKey, sigdata)) {
             return false;
         }
@@ -3023,7 +3023,7 @@ bool CWallet::CreateTransaction(const std::vector<CRecipient>& vecSend, CWalletT
                 const CScript& scriptPubKey = coin.txout.scriptPubKey;
                 SignatureData sigdata;
 
-                // two way protect
+                //edinarcoin:two way protect
                 if (!ProduceSignature(TransactionSignatureCreator(this, &txNewConst, nIn, coin.txout.nValue, SIGHASH_ALL | SIGHASH_FORKID), scriptPubKey, sigdata))
                 {
                     strFailReason = _("Signing transaction failed");

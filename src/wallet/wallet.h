@@ -262,7 +262,7 @@ public:
     const uint256& GetHash() const { return tx->GetHash(); }
     bool IsCoinBase() const { return tx->IsCoinBase(); }
 
-    // pos
+    //edinarcoin:pos
     bool IsCoinStake() const { return tx->IsCoinStake(); }
 };
 
@@ -690,7 +690,7 @@ private:
     TxSpends mapTxSpends;
     void AddToSpends(const COutPoint& outpoint, const uint256& wtxid);
     void AddToSpends(const uint256& wtxid);
-    // pos
+    //edinarcoin:pos
     void RemoveFromSpends(const COutPoint& outpoint, const uint256& wtxid);
     void RemoveFromSpends(const uint256& wtxid);
 
@@ -1055,7 +1055,7 @@ public:
     //! get the current wallet format (the oldest client version guaranteed to understand this wallet)
     int GetVersion() { LOCK(cs_wallet); return nWalletVersion; }
 
-    //!  pos disable transaction for coinstake
+    //! edinarcoin:pos disable transaction for coinstake
     void DisableTransaction(const CTransaction &tx);
 
     //! Get wallet transactions that conflict with given transaction (spend same outputs)
