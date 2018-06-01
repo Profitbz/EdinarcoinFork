@@ -24,12 +24,12 @@
 
 #include <univalue.h>
 
-static const char DEFAULT_RPCCONNECT[] = "127.0.0.1";
-static const int DEFAULT_HTTP_CLIENT_TIMEOUT=900;
-static const bool DEFAULT_NAMED=false;
-static const int CONTINUE_EXECUTION=-1;
+const char DEFAULT_RPCCONNECT[] = "127.0.0.1";
+const int DEFAULT_HTTP_CLIENT_TIMEOUT=900;
+const bool DEFAULT_NAMED=false;
+const int CONTINUE_EXECUTION=-1;
 
-static void SetupCliArgs()
+void SetupCliArgs()
 {
     const auto defaultBaseParams = CreateBaseChainParams(CBaseChainParams::MAIN);
     const auto testnetBaseParams = CreateBaseChainParams(CBaseChainParams::TESTNET);
@@ -74,12 +74,11 @@ public:
 // This function returns either one of EXIT_ codes when it's expected to stop the process or
 // CONTINUE_EXECUTION when it's expected to continue further.
 //
-static int AppInitRPC(int argc, char* argv[])
+int AppInitRPC(int argc, char* argv[])
 {
     //
     // Parameters
     //
-    SetupCliArgs();
     gArgs.ParseParameters(argc, argv);
     if (argc < 2 || HelpRequested(gArgs) || gArgs.IsArgSet("-version")) {
         std::string strUsage = strprintf(_("%s RPC client version"), _(PACKAGE_NAME)) + " " + FormatFullVersion() + "\n";
@@ -136,7 +135,7 @@ struct HTTPReply
     std::string body;
 };
 
-static const char *http_errorstring(int code)
+const char *http_errorstring(int code)
 {
     switch(code) {
 #if LIBEVENT_VERSION_NUMBER >= 0x02010300
@@ -158,7 +157,7 @@ static const char *http_errorstring(int code)
     }
 }
 
-static void http_request_done(struct evhttp_request *req, void *ctx)
+void http_request_done(struct evhttp_request *req, void *ctx)
 {
     HTTPReply *reply = static_cast<HTTPReply*>(ctx);
 
@@ -184,107 +183,14 @@ static void http_request_done(struct evhttp_request *req, void *ctx)
 }
 
 #if LIBEVENT_VERSION_NUMBER >= 0x02010300
-static void http_error_cb(enum evhttp_request_error err, void *ctx)
+void http_error_cb(enum evhttp_request_error err, void *ctx)
 {
     HTTPReply *reply = static_cast<HTTPReply*>(ctx);
     reply->error = err;
 }
 #endif
 
-/** Class that handles the conversion from a command-line to a JSON-RPC request,
- * as well as converting back to a JSON object that can be shown as result.
- */
-class BaseRequestHandler
-{
-public:
-    virtual ~BaseRequestHandler() {}
-    virtual UniValue PrepareRequest(const std::string& method, const std::vector<std::string>& args) = 0;
-    virtual UniValue ProcessReply(const UniValue &batch_in) = 0;
-};
-
-/** Process getinfo requests */
-class GetinfoRequestHandler: public BaseRequestHandler
-{
-public:
-    const int ID_NETWORKINFO = 0;
-    const int ID_BLOCKCHAININFO = 1;
-    const int ID_WALLETINFO = 2;
-
-    /** Create a simulated `getinfo` request. */
-    UniValue PrepareRequest(const std::string& method, const std::vector<std::string>& args) override
-    {
-        if (!args.empty()) {
-            throw std::runtime_error("-getinfo takes no arguments");
-        }
-        UniValue result(UniValue::VARR);
-        result.push_back(JSONRPCRequestObj("getnetworkinfo", NullUniValue, ID_NETWORKINFO));
-        result.push_back(JSONRPCRequestObj("getblockchaininfo", NullUniValue, ID_BLOCKCHAININFO));
-        result.push_back(JSONRPCRequestObj("getwalletinfo", NullUniValue, ID_WALLETINFO));
-        return result;
-    }
-
-    /** Collect values from the batch and form a simulated `getinfo` reply. */
-    UniValue ProcessReply(const UniValue &batch_in) override
-    {
-        UniValue result(UniValue::VOBJ);
-        std::vector<UniValue> batch = JSONRPCProcessBatchReply(batch_in, 3);
-        // Errors in getnetworkinfo() and getblockchaininfo() are fatal, pass them on
-        // getwalletinfo() is allowed to fail in case there is no wallet.
-        if (!batch[ID_NETWORKINFO]["error"].isNull()) {
-            return batch[ID_NETWORKINFO];
-        }
-        if (!batch[ID_BLOCKCHAININFO]["error"].isNull()) {
-            return batch[ID_BLOCKCHAININFO];
-        }
-        result.pushKV("version", batch[ID_NETWORKINFO]["result"]["version"]);
-        result.pushKV("protocolversion", batch[ID_NETWORKINFO]["result"]["protocolversion"]);
-        if (!batch[ID_WALLETINFO].isNull()) {
-            result.pushKV("walletversion", batch[ID_WALLETINFO]["result"]["walletversion"]);
-            result.pushKV("balance", batch[ID_WALLETINFO]["result"]["balance"]);
-        }
-        result.pushKV("blocks", batch[ID_BLOCKCHAININFO]["result"]["blocks"]);
-        result.pushKV("timeoffset", batch[ID_NETWORKINFO]["result"]["timeoffset"]);
-        result.pushKV("connections", batch[ID_NETWORKINFO]["result"]["connections"]);
-        result.pushKV("proxy", batch[ID_NETWORKINFO]["result"]["networks"][0]["proxy"]);
-        result.pushKV("difficulty", batch[ID_BLOCKCHAININFO]["result"]["difficulty"]);
-        result.pushKV("testnet", UniValue(batch[ID_BLOCKCHAININFO]["result"]["chain"].get_str() == "test"));
-        if (!batch[ID_WALLETINFO].isNull()) {
-            result.pushKV("walletversion", batch[ID_WALLETINFO]["result"]["walletversion"]);
-            result.pushKV("balance", batch[ID_WALLETINFO]["result"]["balance"]);
-            result.pushKV("keypoololdest", batch[ID_WALLETINFO]["result"]["keypoololdest"]);
-            result.pushKV("keypoolsize", batch[ID_WALLETINFO]["result"]["keypoolsize"]);
-            if (!batch[ID_WALLETINFO]["result"]["unlocked_until"].isNull()) {
-                result.pushKV("unlocked_until", batch[ID_WALLETINFO]["result"]["unlocked_until"]);
-            }
-            result.pushKV("paytxfee", batch[ID_WALLETINFO]["result"]["paytxfee"]);
-        }
-        result.pushKV("relayfee", batch[ID_NETWORKINFO]["result"]["relayfee"]);
-        result.pushKV("warnings", batch[ID_NETWORKINFO]["result"]["warnings"]);
-        return JSONRPCReplyObj(result, NullUniValue, 1);
-    }
-};
-
-/** Process default single requests */
-class DefaultRequestHandler: public BaseRequestHandler {
-public:
-    UniValue PrepareRequest(const std::string& method, const std::vector<std::string>& args) override
-    {
-        UniValue params;
-        if(gArgs.GetBoolArg("-named", DEFAULT_NAMED)) {
-            params = RPCConvertNamedValues(method, args);
-        } else {
-            params = RPCConvertValues(method, args);
-        }
-        return JSONRPCRequestObj(method, params, 1);
-    }
-
-    UniValue ProcessReply(const UniValue &reply) override
-    {
-        return reply.get_obj();
-    }
-};
-
-static UniValue CallRPC(BaseRequestHandler *rh, const std::string& strMethod, const std::vector<std::string>& args)
+UniValue CallRPC(BaseRequestHandler *rh, const std::string& strMethod, const std::vector<std::string>& args)
 {
     std::string host;
     // In preference order, we choose the following for the port:
@@ -385,7 +291,7 @@ static UniValue CallRPC(BaseRequestHandler *rh, const std::string& strMethod, co
     return reply;
 }
 
-static int CommandLineRPC(int argc, char *argv[])
+int CommandLineRPC(int argc, char *argv[])
 {
     std::string strPrint;
     int nRet = 0;
