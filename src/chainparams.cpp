@@ -182,8 +182,12 @@ public:
             3.5         // * estimated number of transactions per second after that timestamp
         };
 
-        /* disable fallback fee on mainnet */
-        m_fallback_fee_enabled = false;
+        consensus.posLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.nPosSubsidyHalvingInterval = 420240; //halving every  2 years
+        consensus.nPosTargetTimespan = 25 * 60; // 25 minutes
+        consensus.nPosTargetSpacing = 150;  //2.5 minutes
+        consensus.fPoSNoRetargeting = false;
+        consensus.nLastPOWBlock = LAST_POW_BLOCK_HEIGHT;
     }
 };
 
