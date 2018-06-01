@@ -176,10 +176,10 @@ public:
 
         chainTxData = ChainTxData{
             // Data as of block 0000000000000000002d6cca6761c99b3c2e936f9a0e304b7c7651a993f461de (height 506081).
-            1516903077, // * UNIX timestamp of last known number of transactions
-            295363220,  // * total number of transactions between genesis and that timestamp
+            1516833566, // * UNIX timestamp of last known number of transactions
+            495363220,  // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the ChainStateFlushed debug.log lines)
-            3.5         // * estimated number of transactions per second after that timestamp
+            5.0         // * estimated number of transactions per second after that timestamp
         };
 
         consensus.posLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
