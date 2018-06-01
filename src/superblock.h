@@ -13,7 +13,7 @@
 
 bool isSuperBlock(const CBlock& block); 
 bool isSuperBlockHash(const uint256 hash);
-// lf merage super_node
+//edinarcoin:lf merage super_node
 std::shared_ptr<CBlock> getSuperBlock(int i);
 bool getSuperBlockWorkLimit(const CBlockIndex* pindexLast,unsigned int& nProofOfWorkLimit); 
 

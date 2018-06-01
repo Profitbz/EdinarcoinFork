@@ -11,7 +11,7 @@
 #include "chain.h"
 #include "consensus/consensus.h"
 
-// superblock
+//edinarcoin:superblock
 static const uint256 SUPER_BLOCK_HASH1 = uint256S("0fd7ab36246daf61802e10a0316cc2b0f17a1d6404bfdd53878ba34e158b4680");
 static const uint256 SUPER_BLOCK_HASH2 = uint256S("1bfe6e1dc86f504a0a059f624d97e53772a767ea950b43d57665a37383b16536");
 
@@ -23,11 +23,11 @@ bool isSuperBlockHash(const uint256 hash) {
     return hash ==  SUPER_BLOCK_HASH1 || hash ==  SUPER_BLOCK_HASH2;
 }
 
-// superblock
+//edinarcoin:superblock
 static const char* superBlocks[] = {"00000020553669484d6f06633dbde60c04c093f775d627ba6b7412000000000000000000918713e96a16f6bf229d7cf15b3406f76e6b75d5275c8bfd0722198258c74ac0cbacc15affff7f20000000000101000000010000000000000000000000000000000000000000000000000000000000000000ffffffff1103e9a507000b2f503253482f627463642fffffffff0100801e086b4701001976a9149e2ee6d80fcb41bef7da5cbbe142bc52925a182b88ac00000000", 
     "0000002080468b154ea38b8753ddbf04641d7af1b0c26c31a0102e8061af6d2436abd70f60454c8955969db0b86fe45044f0808973fcc6d9295fe039b42c804889092c8ecbacc15affff7f20000000000101000000010000000000000000000000000000000000000000000000000000000000000000ffffffff1103eaa507000b2f503253482f627463642fffffffff0100e87648170000001976a9142e12023a49c3d81a98a1d8b4f6947681f5bf1e5688ac00000000"};
 
-// superblock
+//edinarcoin:superblock
 std::shared_ptr<CBlock> getSuperBlock(int i) {
     std::shared_ptr<CBlock> pblock = std::make_shared<CBlock>();
     CDataStream stream(ParseHex(superBlocks[i]),SER_NETWORK, PROTOCOL_VERSION);
