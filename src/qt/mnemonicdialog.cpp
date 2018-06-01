@@ -41,8 +41,8 @@ MnemonicDialog::MnemonicDialog(QWidget *parent) :
     ui->importWallet->setStyleSheet(styleSheet);
     ui->reimportWallet->setStyleSheet(restyleSheet);
 
-    ui->textBrowser->setText("<p>"+tr("BTC holders before the fork can use either the recovery phrase or the private key to claim 1:1 BTC tokens. The claimed BTC token will be airdropped to your current wallet.")+"</p>"+
-                    "<p>"+tr("Tips: 1.BitcoinBTC wallet is a safety cold wallet (offline wallet), all the user information (recovery phrase or private key) will only be stored in the client.")+"</p>"+
+    ui->textBrowser->setText("<p>"+tr("EDI holders before the fork can use either the recovery phrase or the private key to claim 1:1 EDI tokens. The claimed EDI token will be airdropped to your current wallet.")+"</p>"+
+                    "<p>"+tr("Tips: 1.Edinarcoin wallet is a safety cold wallet (offline wallet), all the user information (recovery phrase or private key) will only be stored in the client.")+"</p>"+
                     "<p>"+tr("      2.If the import process is interrupted(such as a power cut or accidental shutdown), please re-enter the recovery phrase or the private key and click the 'Reimport' button.")+"</p>");
 }
 

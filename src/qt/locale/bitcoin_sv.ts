@@ -2343,7 +2343,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>You can sign messages/agreements with your addresses to prove you can receive bitcoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Du kan underteckna meddelanden/avtal med dina adresser för att bevisa att du kan ta emot bitcoins som skickats till dem. Var försiktig så du inte undertecknar något oklart eller konstigt, eftersom phishing-angrepp kan försöka få dig att underteckna din identitet till dem. Underteckna endast väldetaljerade meddelanden som du btckänner.</translation>
+        <translation>Du kan underteckna meddelanden/avtal med dina adresser för att bevisa att du kan ta emot bitcoins som skickats till dem. Var försiktig så du inte undertecknar något oklart eller konstigt, eftersom phishing-angrepp kan försöka få dig att underteckna din identitet till dem. Underteckna endast väldetaljerade meddelanden som du edikänner.</translation>
     </message>
     <message>
         <source>The Bitcoin address to sign the message with</source>
@@ -2427,7 +2427,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Please check the address and try again.</source>
-        <translation>Vad btc kontrollera adressen och försök igen.</translation>
+        <translation>Vad edi kontrollera adressen och försök igen.</translation>
     </message>
     <message>
         <source>The entered address does not refer to a key.</source>

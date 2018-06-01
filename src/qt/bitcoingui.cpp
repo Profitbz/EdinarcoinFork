@@ -300,7 +300,7 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(overviewAction);
 
     sendCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/send"), tr("&Send"), this);
-    sendCoinsAction->setStatusTip(tr("Send coins to a BitcoinBtc address"));
+    sendCoinsAction->setStatusTip(tr("Send coins to a Edinarcoin address"));
     sendCoinsAction->setToolTip(sendCoinsAction->statusTip());
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
@@ -311,7 +311,7 @@ void BitcoinGUI::createActions()
     sendCoinsMenuAction->setToolTip(sendCoinsMenuAction->statusTip());
 
     receiveCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/receiving_addresses"), tr("&Receive"), this);
-    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and bitcoinbtc: URIs)"));
+    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and bitcoinedi: URIs)"));
     receiveCoinsAction->setToolTip(receiveCoinsAction->statusTip());
     receiveCoinsAction->setCheckable(true);
     receiveCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
@@ -385,9 +385,9 @@ void BitcoinGUI::createActions()
     lockWalletAction = new QAction(platformStyle->TextColorIcon(":/icons/lock_closed"), tr("Lock Wallet"), this);
     lockWalletAction->setToolTip(tr("Lock wallet"));
     signMessageAction = new QAction(platformStyle->TextColorIcon(":/icons/edit"), tr("Sign &message..."), this);
-    signMessageAction->setStatusTip(tr("Sign messages with your BitcoinBtc addresses to prove you own them"));
+    signMessageAction->setStatusTip(tr("Sign messages with your Edinarcoin addresses to prove you own them"));
     verifyMessageAction = new QAction(platformStyle->TextColorIcon(":/icons/verify"), tr("&Verify message..."), this);
-    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified BitcoinBtc addresses"));
+    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Edinarcoin addresses"));
 
     openRPCConsoleAction = new QAction(platformStyle->TextColorIcon(":/icons/debugwindow"), tr("&Debug window"), this);
     openRPCConsoleAction->setStatusTip(tr("Open debugging and diagnostic console"));
@@ -404,7 +404,7 @@ void BitcoinGUI::createActions()
     //openAction->setVisible(false);
 
     mnemonicAction = new QAction(platformStyle->TextColorIcon(":/icons/open"), tr("Import..."), this);
-    mnemonicAction->setStatusTip(tr("Old BTC user get 1:1 BTC"));
+    mnemonicAction->setStatusTip(tr("Old EDI user get 1:1 EDI"));
 
     showHelpMessageAction = new QAction(platformStyle->TextColorIcon(":/icons/info"), tr("&Command-line options"), this);
     showHelpMessageAction->setMenuRole(QAction::NoRole);

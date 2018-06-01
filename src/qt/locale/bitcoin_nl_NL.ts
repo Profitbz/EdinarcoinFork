@@ -62,11 +62,11 @@
         <translation>Ontvangstadres</translation>
     </message>
     <message>
-        <source>These are your BitcoinBtc addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Edinarcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Dit zijn uw Bitcoin adressen voor het versturen van betalingen. Controleer altijd het bedrag en het ontvangstadres voordat u munten verstuurd.</translation>
     </message>
     <message>
-        <source>These are your BitcoinBtc addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Edinarcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>Dit zijn uw Bitcoin adressen voor het ontvangen van betalingen. Het wordt aanbevolen om voor elke transactie een nieuw ontvangstadres te gebruiken.</translation>
     </message>
     <message>

@@ -17,9 +17,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(BTC);
-    unitlist.append(mBTC);
-    unitlist.append(uBTC);
+    unitlist.append(EDI);
+    unitlist.append(mEDI);
+    unitlist.append(uEDI);
     return unitlist;
 }
 
@@ -27,9 +27,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case BTC:
-    case mBTC:
-    case uBTC:
+    case EDI:
+    case mEDI:
+    case uEDI:
         return true;
     default:
         return false;
@@ -40,9 +40,9 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("BTC");
-    case mBTC: return QString("mBTC");
-    case uBTC: return QString::fromUtf8("μBTC");
+    case EDI: return QString("EDI");
+    case mEDI: return QString("mEDI");
+    case uEDI: return QString::fromUtf8("μEDI");
     default: return QString("???");
     }
 }
@@ -51,9 +51,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("BitcoinBtcs");
-    case mBTC: return QString("Milli-BitcoinBtcs (1 / 1" THIN_SP_UTF8 "000)");
-    case uBTC: return QString("Micro-BitcoinBtcs (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case EDI: return QString("Edinarcoins");
+    case mEDI: return QString("Milli-Edinarcoins (1 / 1" THIN_SP_UTF8 "000)");
+    case uEDI: return QString("Micro-Edinarcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -62,9 +62,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case BTC:  return 100000000;
-    case mBTC: return 100000;
-    case uBTC: return 100;
+    case EDI:  return 100000000;
+    case mEDI: return 100000;
+    case uEDI: return 100;
     default:   return 100000000;
     }
 }
@@ -73,9 +73,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case BTC: return 8;
-    case mBTC: return 5;
-    case uBTC: return 2;
+    case EDI: return 8;
+    case mEDI: return 5;
+    case uEDI: return 2;
     default: return 0;
     }
 }

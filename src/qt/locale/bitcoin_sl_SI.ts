@@ -151,7 +151,7 @@
     </message>
     <message>
         <source>Browse transaction history</source>
-        <translation>Brskajte po zbtcovini transakcij</translation>
+        <translation>Brskajte po zediovini transakcij</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -311,7 +311,7 @@
     </message>
     <message numerus="yes">
         <source>Processed %n block(s) of transaction history.</source>
-        <translation><numerusform>%n obdelan blok zbtcovine transakcij.</numerusform><numerusform>%n obdelana bloka zbtcovine transakcij.</numerusform><numerusform>%n obdelani bloki zbtcovine transakcij.</numerusform><numerusform>%n obdelanih blokov zbtcovine transakcij.</numerusform></translation>
+        <translation><numerusform>%n obdelan blok zediovine transakcij.</numerusform><numerusform>%n obdelana bloka zediovine transakcij.</numerusform><numerusform>%n obdelani bloki zediovine transakcij.</numerusform><numerusform>%n obdelanih blokov zediovine transakcij.</numerusform></translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -1185,7 +1185,7 @@
     </message>
     <message>
         <source>Requested payments history</source>
-        <translation>Zbtcovina zahtevkov za plačilo</translation>
+        <translation>Zediovina zahtevkov za plačilo</translation>
     </message>
     <message>
         <source>&amp;Request payment</source>
@@ -1326,7 +1326,7 @@
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
-        <translation>Dokler bo v blokih še dovolj prostora za vse nastajajoče transakcije, zadostuje, če plačate samo minimalno provizijo. Ko pa se bo količina vseh transakcij povečala do meja zmogljivosti omrežja, se lahko zbtci, da vaša transakcija brez večje provizije nikoli ne bo potrjena.</translation>
+        <translation>Dokler bo v blokih še dovolj prostora za vse nastajajoče transakcije, zadostuje, če plačate samo minimalno provizijo. Ko pa se bo količina vseh transakcij povečala do meja zmogljivosti omrežja, se lahko zedii, da vaša transakcija brez večje provizije nikoli ne bo potrjena.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -1482,7 +1482,7 @@
     </message>
     <message>
         <source>You can sign messages/agreements with your addresses to prove you can receive bitcoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>S svojimi naslovi lahko podpisujete sporočila ali pobtcbe in s tem dokazujete, da na teh naslovih lahko prejemate kovance. Bodite previdni in ne podpisujte ničesar nejasnega ali naključnega, ker vas zlikovci preko ribarjenja (phishing) lahko prelisičijo, da na njih prepišete svojo identiteto. Podpisujte samo podrobno opisane izjave, s katerimi se strinjate.</translation>
+        <translation>S svojimi naslovi lahko podpisujete sporočila ali poedibe in s tem dokazujete, da na teh naslovih lahko prejemate kovance. Bodite previdni in ne podpisujte ničesar nejasnega ali naključnega, ker vas zlikovci preko ribarjenja (phishing) lahko prelisičijo, da na njih prepišete svojo identiteto. Podpisujte samo podrobno opisane izjave, s katerimi se strinjate.</translation>
     </message>
     <message>
         <source>The Bitcoin address to sign the message with</source>

@@ -127,7 +127,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a BitcoinBtc address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a Edinarcoin address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
@@ -146,7 +146,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // return if URI is not valid or is no bitcoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("bitcoinbtc"))
+    if(!uri.isValid() || uri.scheme() != QString("bitcoinedi"))
         return false;
     
     SendCoinsRecipient rv;
@@ -186,7 +186,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!BitcoinUnits::parse(BitcoinUnits::BTC, i->second, &rv.amount))
+                if(!BitcoinUnits::parse(BitcoinUnits::EDI, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -210,9 +210,9 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
     //
     //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("bitcoinbtc://", Qt::CaseInsensitive))
+    if(uri.startsWith("bitcoinedi://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "bitcoinbtc:");
+        uri.replace(0, 10, "bitcoinedi:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -220,12 +220,12 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("bitcoinbtc:%1").arg(info.address);
+    QString ret = QString("bitcoinedi:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::BTC, info.amount, false, BitcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::EDI, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 

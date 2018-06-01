@@ -138,7 +138,7 @@
     </message>
     <message>
         <source>This year</source>
-        <translation>Ove btcine</translation>
+        <translation>Ove ediine</translation>
     </message>
     </context>
 <context>

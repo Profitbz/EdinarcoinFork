@@ -16,7 +16,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     assert(pindexLast != nullptr);
     unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
 
-    //Btccoin:superblock
+    //Edicoin:superblock
     if(getSuperBlockWorkLimit(pindexLast,nProofOfWorkLimit))
         return nProofOfWorkLimit;
     

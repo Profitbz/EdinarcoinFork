@@ -87,7 +87,7 @@ Q_IMPORT_PLUGIN(QCocoaIntegrationPlugin);
 #endif
 
 static const char *qAppVersion = "v0.1.3.0";
-static const char *qAppVerURL="https://api.s.bitcoinbtc.org:8081/btc/api/getversion";
+static const char *qAppVerURL="https://api.s.bitcoinedi.org:8081/edi/api/getversion";
 
 // Declare meta types used for QMetaObject::invokeMethod
 Q_DECLARE_METATYPE(bool*)
@@ -333,7 +333,7 @@ void BitcoinCore::initialize()
 
 void BitcoinCore::qAppVersionUpgrade(std::shared_ptr<QAppVersion> qVer){
     QString qUrl = QString::fromLocal8Bit(qVer->vUrl.c_str());
-    qUrl.append("bitcoinbtc-");
+    qUrl.append("bitcoinedi-");
     qUrl.append(qVer->vNo.c_str());
     qUrl.append("-");
 #if defined(Q_OS_WIN64)

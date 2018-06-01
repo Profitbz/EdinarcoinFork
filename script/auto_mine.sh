@@ -3,7 +3,7 @@ echo "Strat Pos Mining"
 
 while true
 do
-ret=`bitcoinbtc-cli generatepos`
+ret=`bitcoinedi-cli generatepos`
 echo $ret
 sleep 150
 done

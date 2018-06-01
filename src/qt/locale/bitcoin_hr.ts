@@ -1516,7 +1516,7 @@
     </message>
     <message>
         <source>This year</source>
-        <translation>Ove btcine</translation>
+        <translation>Ove ediine</translation>
     </message>
     <message>
         <source>Range...</source>

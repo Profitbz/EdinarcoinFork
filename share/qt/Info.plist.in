@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>BitcoinBtc-Qt</string>
+  <string>Edinarcoin-Qt</string>
   
   <key>CFBundleName</key>
-  <string>BitcoinBtc-Qt</string>
+  <string>Edinarcoin-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.bitcoinfoundation.BitcoinBtc-Qt</string>
+  <string>org.bitcoinfoundation.Edinarcoin-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>

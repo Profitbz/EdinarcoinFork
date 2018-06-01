@@ -915,7 +915,7 @@
     </message>
     <message>
         <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the bitcoin network, as detailed below.</source>
-        <translation>Świeże transakcje mogą nie być jeszcze widoczne, a zatem saldo portfela może być nieprawidłowe. Te detale będą poprawne, gdy portfel zakończy synchronizację z siecią bitcoin, zbtcnie z poniższym opisem.</translation>
+        <translation>Świeże transakcje mogą nie być jeszcze widoczne, a zatem saldo portfela może być nieprawidłowe. Te detale będą poprawne, gdy portfel zakończy synchronizację z siecią bitcoin, zedinie z poniższym opisem.</translation>
     </message>
     <message>
         <source>Attempting to spend bitcoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
@@ -939,7 +939,7 @@
     </message>
     <message>
         <source>Progress increase per hour</source>
-        <translation>Przyrost postępu na btczinę</translation>
+        <translation>Przyrost postępu na edizinę</translation>
     </message>
     <message>
         <source>calculating...</source>
@@ -1457,7 +1457,7 @@
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
-        <translation><numerusform>%n btczina</numerusform><numerusform>%n btcziny</numerusform><numerusform>%n btczin</numerusform><numerusform>%n btczin</numerusform></translation>
+        <translation><numerusform>%n edizina</numerusform><numerusform>%n ediziny</numerusform><numerusform>%n edizin</numerusform><numerusform>%n edizin</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n day(s)</source>
@@ -1465,7 +1465,7 @@
     </message>
     <message numerus="yes">
         <source>%n week(s)</source>
-        <translation><numerusform>%n tydzień</numerusform><numerusform>%n tybtcnie</numerusform><numerusform>%n tybtcni</numerusform><numerusform>%n tybtcni</numerusform></translation>
+        <translation><numerusform>%n tydzień</numerusform><numerusform>%n tyedinie</numerusform><numerusform>%n tyedini</numerusform><numerusform>%n tyedini</numerusform></translation>
     </message>
     <message>
         <source>%1 and %2</source>
@@ -1742,7 +1742,7 @@
     </message>
     <message>
         <source>1 &amp;hour</source>
-        <translation>1 &amp;btczina</translation>
+        <translation>1 &amp;edizina</translation>
     </message>
     <message>
         <source>1 &amp;day</source>
@@ -2773,7 +2773,7 @@ Zwróć uwagę, że poprawnie zweryfikowana wiadomość potwierdza to, że nadaw
     </message>
     <message>
         <source>This week</source>
-        <translation>W tym tybtcniu</translation>
+        <translation>W tym tyediniu</translation>
     </message>
     <message>
         <source>This month</source>
@@ -3112,7 +3112,7 @@ Zwróć uwagę, że poprawnie zweryfikowana wiadomość potwierdza to, że nadaw
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation>Ostrzeżenie: Sieć nie wydaje się w pełni zbtcna! Niektórzy górnicy wydają się doświadczać problemów.</translation>
+        <translation>Ostrzeżenie: Sieć nie wydaje się w pełni zedina! Niektórzy górnicy wydają się doświadczać problemów.</translation>
     </message>
     <message>
         <source>%s corrupt, salvage failed</source>
@@ -3580,7 +3580,7 @@ Zwróć uwagę, że poprawnie zweryfikowana wiadomość potwierdza to, że nadaw
     </message>
     <message>
         <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation>Nie trzymaj w pamięci transakcji starszych niż &lt;n&gt; btcz. (domyślnie: %u)</translation>
+        <translation>Nie trzymaj w pamięci transakcji starszych niż &lt;n&gt; ediz. (domyślnie: %u)</translation>
     </message>
     <message>
         <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>

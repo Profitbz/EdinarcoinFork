@@ -923,7 +923,7 @@
     </message>
     <message>
         <source>Attempting to spend bitcoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Forsøk på å bruke bitcoin som er påvirket av transaksjoner som ikke er vist enda btctas ikke av nettverket.</translation>
+        <translation>Forsøk på å bruke bitcoin som er påvirket av transaksjoner som ikke er vist enda editas ikke av nettverket.</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -3139,7 +3139,7 @@
     </message>
     <message>
         <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
-        <translation>Btcta stafettransaksjoner mottatt fra hvitlistede likemenn, selv når transaksjoner ikke stafettsendes (forvalg: %d)</translation>
+        <translation>Edita stafettransaksjoner mottatt fra hvitlistede likemenn, selv når transaksjoner ikke stafettsendes (forvalg: %d)</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
@@ -3583,7 +3583,7 @@
     </message>
     <message>
         <source>Accept public REST requests (default: %u)</source>
-        <translation>Btcta offentlige REST forespørsler (standardverdi: %u)</translation>
+        <translation>Edita offentlige REST forespørsler (standardverdi: %u)</translation>
     </message>
     <message>
         <source>Automatically create Tor hidden service (default: %d)</source>

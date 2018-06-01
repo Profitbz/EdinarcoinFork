@@ -142,7 +142,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "echojson", 8, "arg8" },
     { "echojson", 9, "arg9" },
 
-    //btccoin newrpc 
+    //edicoin newrpc 
     { "listblocks", 0, "page" },
     { "listblocks", 1, "length" },
     { "newlisttransactions", 1, "count" },
